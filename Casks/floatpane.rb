@@ -22,4 +22,10 @@ cask "floatpane" do
     "~/Library/Preferences/com.andrinoff.floatpane.plist",
     "~/Library/Saved Application State/com.andrinoff.floatpane.savedState",
   ]
+  
+  postflight do
+    system_command "xattr",
+                   args: ["-cr", "#{appdir}/FloatPane.app"],
+                   sudo: false
+  end
 end
